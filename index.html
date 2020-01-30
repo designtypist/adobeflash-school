@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<title>Slapjack! - By: James Chung</title>
+		<style type="text/css" media="screen">
+			html, body { 
+				height:100%; 
+				background-color: #ffffff;
+			}
+			body { 
+				margin:0; 
+				padding:0; 
+				overflow:hidden;
+				background-image: url("cardBack.jpg");
+				position: relative;
+			}
+			#flashContent { 
+				width:100%; 
+				height:100%; 
+				text-align:	center;
+			}
+			#project {
+				position: relative;
+				top: 10%;
+			}
+			#project div.noFlash {
+				width: 760px;
+				height: 550px;
+				background-color: #fff;
+				margin: 0 auto;
+			}
+			#project div.innerDiv {
+				position: relative;
+				top: 10%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="flashContent">
+			<object type="application/x-shockwave-flash" data="project.swf" id="project" style="float: none; vertical-align:middle" height="550" width="760">
+				<param name="movie" value="project.swf">
+				<param name="quality" value="high">
+				<param name="bgcolor" value="#ffffff">
+				<param name="play" value="true">
+				<param name="loop" value="true">
+				<param name="wmode" value="window">
+				<param name="scale" value="showall">
+				<param name="menu" value="true">
+				<param name="devicefont" value="false">
+				<param name="salign" value="">
+				<param name="allowScriptAccess" value="sameDomain">
+				<div class="noFlash">
+					<div class="innerDiv">
+						<a href="http://www.adobe.com/go/getflash" target="_blank">
+							<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+							<p>You are not running flash</p>
+						</a>
+					</div>
+				</div>
+			</object>
+		</div>
+		<script type="text/JavaScript" src="flash_detect.js"></script>
+		<script type="">
+			//Function to detect what version of Flash you are using
+			function detectFlash(){
+				if(FlashDetect.installed){
+					return "You are using " + FlashDetect.raw;
+				} else {
+					return "You need to install Flash before continuing";
+				}		
+			}
+			
+			//Create the html element to display the message
+			var node = document.createElement("P");                
+			var textnode = document.createTextNode(detectFlash());   
+			node.appendChild(textnode);                              
+			document.getElementsByClassName("innerDiv")[0].appendChild(node);
+		</script> 
+	</body>
+</html>
